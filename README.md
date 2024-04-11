@@ -1,4 +1,4 @@
-This is a Crypto Dashboard developed using NextJs, API, Cookies and queue. Also added search functionalities.
+This is a Crypto Dashboard developed using NextJs, API, Cookies and queue. Also added search functionalities. This application uses latest NextJs version and new methodologies.
 
 Working:
 
