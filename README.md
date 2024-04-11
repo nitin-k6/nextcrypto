@@ -1,3 +1,27 @@
+This is a Crypto Dashboard developed using NextJs, API, Cookies and queue.
+
+Working:
+
+Caching with Cookies:
+
+1. The code utilizes the js-cookie library to manage cookies for data storage.
+2. When the component loads (using useEffect with an empty dependency array), it first checks for cached data within a cookie.
+3. If cached data exists, it's retrieved and used to populate the application state, effectively bypassing the API call and utilizing the cached information.
+
+Queuing API Requests:
+
+1.A state variable named requestQueue is used to maintain a list of pending API requests.
+2.The fetchData function verifies if data is already being fetched (using isLoading state). If it is, the function exits to prevent redundant API calls.
+3. When no cached data is found, the addToQueue function is called, adding a marker (usually a boolean value set to true) to the requestQueue, indicating a pending request.
+4. Another useEffect hook monitors changes in the requestQueue. If the queue has pending requests (indicated by a non-empty queue), the fetchQueue function is triggered.
+5. Inside fetchQueue, the first request from the queue is retrieved. Then, the API call is made, the response is processed, and the fetched data updates the application state. This fetched data is also cached in a cookie for future use.
+6. Finally, the processed request is removed from the queue.
+
+  Overall, this setup ensures that API requests are made sequentially, preventing concurrent requests, and uses cookies for caching responses to avoid unnecessary API calls for repeated requests.
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
